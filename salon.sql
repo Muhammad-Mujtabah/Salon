@@ -51,7 +51,7 @@ CREATE TABLE public.appointments (
     appointment_id integer NOT NULL,
     customer_id integer,
     service_id integer,
-    "time" character varying
+    "time" character varying NOT NULL
 );
 
 
@@ -85,8 +85,8 @@ ALTER SEQUENCE public.appointments_appointment_id_seq OWNED BY public.appointmen
 
 CREATE TABLE public.customers (
     customer_id integer NOT NULL,
-    phone character varying,
-    name character varying
+    phone character varying NOT NULL,
+    name character varying NOT NULL
 );
 
 
@@ -120,7 +120,7 @@ ALTER SEQUENCE public.customers_customer_id_seq OWNED BY public.customers.custom
 
 CREATE TABLE public.services (
     service_id integer NOT NULL,
-    name character varying
+    name character varying NOT NULL
 );
 
 
@@ -173,14 +173,12 @@ ALTER TABLE ONLY public.services ALTER COLUMN service_id SET DEFAULT nextval('pu
 -- Data for Name: appointments; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.appointments VALUES (12, 11, 1, '9');
 
 
 --
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.customers VALUES (11, '234567', 'name');
 
 
 --
@@ -196,21 +194,21 @@ INSERT INTO public.services VALUES (3, 'style');
 -- Name: appointments_appointment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 12, true);
+SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 6, true);
 
 
 --
 -- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.customers_customer_id_seq', 11, true);
+SELECT pg_catalog.setval('public.customers_customer_id_seq', 5, true);
 
 
 --
 -- Name: services_service_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.services_service_id_seq', 1, false);
+SELECT pg_catalog.setval('public.services_service_id_seq', 3, true);
 
 
 --
